@@ -317,8 +317,11 @@ class Collections {
             val set = mutableSetOf<Int>()
             assertTrue(set.isEmpty())
 
-            set.addAll(setOf(1, 2, 3))
-            assertPrints(set, "[1, 2, 3]")
+            set.add(1)
+            set.add(2)
+            set.add(1)
+
+            assertPrints(set, "[1, 2]")
         }
 
         @Sample
@@ -326,8 +329,9 @@ class Collections {
             val set = mutableSetOf(1, 2, 3)
             assertPrints(set, "[1, 2, 3]")
 
-            set += setOf(4, 5)
-            assertPrints(set, "[1, 2, 3, 4, 5]")
+            set.remove(3)
+            set += listOf(4, 5)
+            assertPrints(set, "[1, 2, 4, 5]")
         }
     }
 
